@@ -11,7 +11,7 @@
   </div>
   <div class="settings__playbackBreak">
     <div class="">автоматическое переключение режимов</div>
-    <button (click)="automaticPlaybackBreaks = !automaticPlaybackBreaks; this.custName2.emit(automaticPlaybackBreaks)">
+    <button (click)="automaticPlaybackBreaks = !automaticPlaybackBreaks; this.automaticPlayback.emit(automaticPlaybackBreaks)">
       {{automaticPlaybackBreaks == false? "включить":"выключить"}}</button>
   </div>
   <div class="settings__playbackBreakCount">кол-во повторений</div>

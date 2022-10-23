@@ -8,9 +8,10 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class TimerSettingsComponent implements OnInit {
 
   @Input() timeCategory: any;
-  @Output() custName = new EventEmitter();
-  @Output() custName2 = new EventEmitter<boolean>();
+  @Output() resetTime = new EventEmitter();
+  @Output() automaticPlayback = new EventEmitter<boolean>();
   @Output() BreaksCount = new EventEmitter<number>();
+
   playbackBreaksCount: number = 1;
   automaticPlaybackBreaks: boolean = false;
 
@@ -25,7 +26,7 @@ export class TimerSettingsComponent implements OnInit {
         this.timeCategory[id].defaultMin = 0;
       }
     }
-    this.custName.emit();
+    this.resetTime.emit();
   }
 
   OnPlaybackBreaksCountChange(event: any): void {

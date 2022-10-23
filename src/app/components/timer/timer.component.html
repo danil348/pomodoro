@@ -13,13 +13,13 @@
       <span>{{min}}</span>:<span>{{sec}}</span>
     </div>
     <button class="timer__button button-state" (click)="SwitchBtnState()">{{BtnText[BtnState]}}</button>
-    <button class="timer__button button-reset" (click)="ResetTime()">reset</button>
+    <button class="timer__button button-reset" (click)="ResetTime();clear()">reset</button>
   </div>
 </div>
 
 <app-timer-settings
   [timeCategory]="timeCategory"
-  (custName)="ResetTime()"
-  (custName2)="someAction($event)"
+  (resetTime)="ResetTime()"
+  (automaticPlayback)="changeAutomaticPlaybackState($event)"
   (BreaksCount)="ChangeBreaksCount($event)"
 ></app-timer-settings>

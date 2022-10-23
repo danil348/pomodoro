@@ -23,7 +23,9 @@ export class TimerComponent implements OnInit {
   min: any = 55;
   sec: any = "0" + 0;
 
-  someAction(value: boolean): void {
+  constructor() { }
+
+  changeAutomaticPlaybackState(value: boolean): void {
     this.automaticPlaybackBreaks = value;
   }
 
@@ -88,11 +90,7 @@ export class TimerComponent implements OnInit {
     clearInterval(this.timer);
   }
 
-  constructor() { }
-
   ngOnInit(): void {
     this.ResetTime();
-    console.log(typeof this.timeCategory)
   }
-
 }
