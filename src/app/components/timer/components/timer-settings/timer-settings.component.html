@@ -1,0 +1,23 @@
+<br>
+<div class="settings">
+  <div class="settings__item category-item" *ngFor="let item of timeCategory">
+    <div class="category-item__name">{{item.name}} : {{item.defaultMin}} min</div>
+    <input
+      (input)="onInput($event, item.id)"
+      type="number"
+      class="category-item__value"
+      [value]="timeCategory.defaultMin"
+    >
+  </div>
+  <div class="settings__playbackBreak">
+    <div class="">автоматическое переключение режимов</div>
+    <button (click)="automaticPlaybackBreaks = !automaticPlaybackBreaks; this.custName2.emit(automaticPlaybackBreaks)">
+      {{automaticPlaybackBreaks == false? "включить":"выключить"}}</button>
+  </div>
+  <div class="settings__playbackBreakCount">кол-во повторений</div>
+  <input
+    type="number"
+    [value]="playbackBreaksCount"
+    (input)="OnPlaybackBreaksCountChange($event)"
+  >
+</div>

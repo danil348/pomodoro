@@ -1,0 +1,25 @@
+<div class="container timer">
+  <div class="timer__body">
+    <ul>
+      <li
+        *ngFor="let item of timeCategory"
+        (click)="ChangeTimeCategory(item.id)"
+        [ngClass]="{'_active': activeCategory == item.id}"
+      >
+        {{item.name}}
+      </li>
+    </ul>
+    <div class="timer__timer">
+      <span>{{min}}</span>:<span>{{sec}}</span>
+    </div>
+    <button class="timer__button button-state" (click)="SwitchBtnState()">{{BtnText[BtnState]}}</button>
+    <button class="timer__button button-reset" (click)="ResetTime()">reset</button>
+  </div>
+</div>
+
+<app-timer-settings
+  [timeCategory]="timeCategory"
+  (custName)="ResetTime()"
+  (custName2)="someAction($event)"
+  (BreaksCount)="ChangeBreaksCount($event)"
+></app-timer-settings>
